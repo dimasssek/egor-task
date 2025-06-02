@@ -1,6 +1,5 @@
 package ru.egor.property;
 
-import java.io.IOException;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Properties;
@@ -23,8 +22,6 @@ public class PropertyContainer {
     /**
      * Загрузка настроек из файла app.properties и их сохранение.
      */
-
-
     public void loadProperties() {
         var appProperties = new Properties();
         try {
