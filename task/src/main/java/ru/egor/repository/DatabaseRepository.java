@@ -2,6 +2,7 @@ package ru.egor.repository;
 
 import java.sql.SQLException;
 import java.util.List;
+import java.util.UUID;
 
 /**
  * Необходимо реализовать операции чтения и записи.
@@ -23,7 +24,7 @@ public interface DatabaseRepository<T> {
     /**
      * Очищает базу данных.
      */
-    void delete() throws SQLException;
+    void delete(UUID id) throws SQLException;
 
     /**
      * Очищает базу данных.

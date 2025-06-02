@@ -4,14 +4,23 @@ import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
+import ru.egor.db.DerbyDataSourceProvider;
 import ru.egor.property.PropertyContainer;
+import ru.egor.repository.DerbyPaymentsDatabaseRepository;
+import ru.egor.service.PaymentService;
 
 import java.io.IOException;
+import java.sql.SQLException;
 
 public class Main extends Application {
-    public static void main(String[] args) {
+
+    public static void main(String[] args) throws SQLException {
         var propertyContainer = new PropertyContainer("app.properties");
         propertyContainer.loadProperties();
+        var dataProvider = new DerbyDataSourceProvider(propertyContainer);
+        var repository = new DerbyPaymentsDatabaseRepository(dataProvider.getDataSource());
+        var service = new PaymentService(repository);
+
         launch(args);
     }
 

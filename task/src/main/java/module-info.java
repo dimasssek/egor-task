@@ -17,5 +17,10 @@ module ru.egor {
     requires java.naming;
 
     opens ru.egor to javafx.fxml;
-    exports ru.egor;
+    exports ru.egor;           // Основной пакет
+    exports ru.egor.service;   // Для PaymentService
+    exports ru.egor.db;
+    exports ru.egor.repository;
+    exports ru.egor.property;
+    exports ru.egor.model;
 }

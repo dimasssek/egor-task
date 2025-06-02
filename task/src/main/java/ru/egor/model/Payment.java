@@ -1,22 +1,23 @@
 package ru.egor.model;
 
-import java.time.LocalDate;
+import java.time.LocalDateTime;
+import java.util.UUID;
 
 public class Payment {
 
-    private Integer id;
+    private UUID id;
 
     private String payer;
 
     private Double amount;
 
-    private LocalDate paymentDate;
+    private LocalDateTime paymentDate;
 
-    public Integer getId() {
+    public UUID getId() {
         return id;
     }
 
-    public void setId(Integer id) {
+    public void setId(UUID id) {
         this.id = id;
     }
 
@@ -36,18 +37,31 @@ public class Payment {
         this.amount = amount;
     }
 
-    public LocalDate getPaymentDate() {
+    public LocalDateTime getPaymentDate() {
         return paymentDate;
     }
 
-    public void setPaymentDate(LocalDate paymentDate) {
+    public void setPaymentDate(LocalDateTime paymentDate) {
         this.paymentDate = paymentDate;
     }
 
-    public Payment(Integer id, String payer, Double amount, LocalDate paymentDate) {
+    public Payment(UUID id, String payer, Double amount, LocalDateTime paymentDate) {
         this.id = id;
         this.payer = payer;
         this.amount = amount;
         this.paymentDate = paymentDate;
+    }
+
+    public Payment() {
+    }
+
+    @Override
+    public String toString() {
+        return "Payment{" +
+                "id=" + id +
+                ", payer='" + payer + '\'' +
+                ", amount=" + amount +
+                ", paymentDate=" + paymentDate +
+                '}';
     }
 }
